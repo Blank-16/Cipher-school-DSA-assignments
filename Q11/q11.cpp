@@ -6,20 +6,19 @@ using namespace std;
 
 string isPrime(int n)
 {
+    if (n <= 1) return "False";
+    if (n == 2) return "True";
+    
     vector<int> a;
     int root = sqrt(n);
-    while(root < 0)
+    for(int i = 2; i <= root; i++)
     {
-        if( n % root == 0){
-            a.push_back(root);
-            root--;
-        }
-        else {
-            root--;
+        if( n % i == 0){
+            a.push_back(i);
         }
     }
 
-    return a.size() > 2 ? "False" : "True";
+    return a.size() > 0 ? "False" : "True";
 }
 
 int factorial(int n)
